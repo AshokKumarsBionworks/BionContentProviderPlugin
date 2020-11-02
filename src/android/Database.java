@@ -84,8 +84,7 @@ public class Database {
 
     public boolean delete(JSONObject inputArgs) throws JSONException {
         String userName = inputArgs.getString("userName");
-        String password = inputArgs.getString("password");
-        return sqLliteDatabase.delete(TABLE_NAME,COLUMN_USERNAME+"= ? and "+COLUMN_PASSWORD+"=?",new String[]{userName,password}) > 0;
+        return sqLliteDatabase.delete(TABLE_NAME,COLUMN_USERNAME+"= ?",new String[]{userName}) > 0;
     }
 
     public JSONArray getAllCredentials() throws JSONException {

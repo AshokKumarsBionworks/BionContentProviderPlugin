@@ -104,7 +104,7 @@ public class BionContentProviderPlugin extends CordovaPlugin {
 
     public void deleteCredentials(JSONObject args) throws JSONException {
         JSONObject response = new JSONObject();
-        if(args.getString("userName").isEmpty() || args.getString("password").isEmpty()) {
+        if(args.getString("userName").isEmpty()) {
             response.put("status","ERROR");
             response.put("data",null);
             response.put("message",WRONG_PARAMS);
