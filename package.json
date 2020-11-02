@@ -1,0 +1,17 @@
+{
+  "name": "com.bionworks.contentproviderplugin",
+  "version": "1.0.0",
+  "description": "share data using custom content provider between two application",
+  "cordova": {
+    "id": "com.bionworks.contentproviderplugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "AshokKumar TS",
+  "license": "ISC"
+}

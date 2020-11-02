@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.bionworks.contentproviderplugin" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>BionContentProviderPlugin</name>
+    <js-module name="BionContentProviderPlugin" src="www/BionContentProviderPlugin.js">
+        <clobbers target="cordova.plugins.BionContentProviderPlugin" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BionContentProviderPlugin">
+                <param name="android-package" value="com.bionworks.contentproviderplugin.BionContentProviderPlugin" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="src/android/BionContentProviderPlugin.java" target-dir="src/com/bionworks/contentproviderplugin/BionContentProviderPlugin" />
+        <source-file src="src/android/Database.java" target-dir="src/com/bionworks/contentproviderplugin/BionContentProviderPlugin" />
+        <source-file src="src/android/CredentialContentProvider.java" target-dir="src/com/bionworks/contentproviderplugin/BionContentProviderPlugin" />
+        <source-file src="src/android/SaveUtilData.java" target-dir="src/com/bionworks/contentproviderplugin/BionContentProviderPlugin" />
+        <source-file src="src/android/AndroidKeyStore.java" target-dir="src/com/bionworks/contentproviderplugin/BionContentProviderPlugin" />
+        <framework src="net.zetetic:android-database-sqlcipher:4.2.0@aar" />
+    </platform>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <provider android:name="com.bionworks.contentproviderplugin.CredentialContentProvider" 
+                  android:authorities="com.bion.own.PROVIDER"
+                  android:enabled="true"
+                  android:exported="true"
+                  android:readPermission="com.bionworks.contentproviderplugin.READ"/>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+        <permission android:name="com.bionworks.contentproviderplugin.READ"
+                    android:protectionLevel="signature"/>
+    </config-file>
+</plugin>
